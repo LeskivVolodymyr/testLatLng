@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="search-block">
+    <h3>Start type address</h3>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Address" (keydown)=keyPress($event) (input)="search = $event.target.value" [matAutocomplete]="auto" />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of searchOptions" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-autocomplete>
+    </div>
+  </div>
+  <button (click)="getCoordinates()"> search</button>
+  <div>
+    <h4>Latitude: {{location.lat}}</h4>
+    <h4>Longitude: {{location.lng}}</h4>
+  </div>
+  <div></div>
+</div>
